@@ -1,7 +1,16 @@
+import sys
 
 from storage import read, write
 
-plants = read()
+try:
+    plants = read()
+    if len(plants) == 0:
+        print('Каталог пуст. Процесс завершен')
+        sys.exit()
+except FileNotFoundError:
+    print('Каталог не найден. Процесс завершен')
+    sys.exit()
+
 
 for number, plant in enumerate(plants):
     if plant["days"] >= 5 or plant["days"] == 0:
