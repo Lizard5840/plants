@@ -68,11 +68,10 @@ def change_days(selcted_number):
             print(f'Пожалуйста, введите число')
 
 
-
-if choose_plant() is not None:
-    selected_number = choose_plant()
-    if change_days(selected_number) is not None:
-        selected_days = change_days(selected_number)
+selected_number = choose_plant()
+if selected_number is not None:
+    selected_days = change_days(selected_number)
+    if selected_days is not None:
         plants[selected_number]["days"] = selected_days
         write(plants)
 
